@@ -1,10 +1,20 @@
 import React from "react";
+import boxes from "./boxes";
+import Box from "./components/Box";
 
 export default function Content() {
-  const colors = [<h3>Red</h3>, <h3>Orange</h3>, <h3>Yellow</h3>, <h3>Green</h3>, <h3>Blue</h3>, <h3>Indigo</h3>, <h3>Violet</h3>]
-  return (
-    <div>
-      {colors}
+  const [squares, setSquares] = React.useState(boxes)
+
+  const squareElements = squares.map(square => (
+    <Box
+      key={square.id}
+      on={square.on}
+    />
+    ))
+
+    return (
+      <div className="boxes">
+      {squareElements}
     </div>
   )
 }
