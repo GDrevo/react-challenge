@@ -6,7 +6,11 @@ export default function Content() {
   const [squares, setSquares] = React.useState(boxes)
 
   function toggle(id) {
-
+    setSquares(prevSquares => {
+      return prevSquares.map((square) => {
+        return square.id === id ? {...square, on: !square.on} : square
+      })
+    })
   }
 
   const squareElements = squares.map(square => (
@@ -16,7 +20,7 @@ export default function Content() {
       on={square.on}
       toggle={toggle}
     />
-    ))
+  ))
 
     return (
       <div className="boxes">
