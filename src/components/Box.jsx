@@ -7,11 +7,13 @@ export default function Box(props) {
     backgroundColor: isOn ? "white" : "transparent"
   }
 
-  function toggleColor() {
-    setIsOn(prevIsOn => !prevIsOn)
-  }
-
   return (
-    <div className="box" key={props.key} style={styles} onClick={toggleColor}></div>
+    <div
+      className="box"
+      key={props.key}
+      style={styles}
+      onClick={()=>props.toggle(props.id)}
+    >
+    </div>
   )
 }
